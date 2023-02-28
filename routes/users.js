@@ -29,6 +29,7 @@ router.post('/', (req, res) => {
 // })
 
 router.get('/:userId', (req, res) => {
+    console.log(req.users);
     res.send(`Get user with id ${req.params.userId}`)
 })
 router.put('/:userId', (req, res) => {
@@ -36,6 +37,13 @@ router.put('/:userId', (req, res) => {
 })
 router.delete('/:userId', (req, res) => {
     res.send(`Delete user with id ${req.params.userId}`)
+})
+
+const users = [{ name: "Krishna" }, { name: "yash" }]
+router.param("userId", (req, res, next, userId) => {
+    // console.log(userid);
+    req.users=users[userId]
+    next()
 })
 
 
