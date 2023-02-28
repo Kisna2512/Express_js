@@ -15,15 +15,8 @@ app.get('/', (req, res) => {
 })
 
 
-app.get('/users', (req, res) => {
-    res.send("users list")
-})
-
-app.get('/users/new', (req, res) => {
-    res.send("users new form")
-})
-
-
+const userRouter=require("./routes/users")
+app.use('/users',userRouter)
 
 
 app.listen(3000)
