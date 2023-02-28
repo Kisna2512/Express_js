@@ -12,12 +12,30 @@ router.get('/new', (req, res) => {
 })
 
 
+
+
+
 router.post('/', (req, res) => {
     res.send("Create user")
 })
 
+// It works excatly same as below code
+// router.route('/:userId').get((req, res) => {
+//     res.send(`Get user with id ${req.params.userId}`)
+// }).put((req, res) => {
+//     res.send(`Update user with id ${req.params.userId}`)
+// }).delete((req, res) => {
+//     res.send(`Delete user with id ${req.params.userId}`)
+// })
+
 router.get('/:userId', (req, res) => {
     res.send(`Get user with id ${req.params.userId}`)
+})
+router.put('/:userId', (req, res) => {
+    res.send(`Update user with id ${req.params.userId}`)
+})
+router.delete('/:userId', (req, res) => {
+    res.send(`Delete user with id ${req.params.userId}`)
 })
 
 
